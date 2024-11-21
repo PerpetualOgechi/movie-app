@@ -9,6 +9,8 @@ export interface Movie {
   }
 
   export interface MoviesResponse {
+    genres: any;
+    data(data: any): unknown;
     page: number; // Current page
     results: Movie[]; // List of movies
     total_pages: number; // Total number of pages available

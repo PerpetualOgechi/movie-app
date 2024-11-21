@@ -18,7 +18,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
       <div className="p-4">
         <h2 className="text-lg font-semibold">{movie.title}</h2>
         <p className="text-sm text-gray-600">Release: {movie.release_date}</p>
-        <p className="text-sm text-gray-600">Rating: {movie.vote_average.toFixed(1)} / 10</p>
+        <p className="text-sm text-gray-600">Rating: {movie.vote_average?.toFixed(1)} / 10</p>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { MoviesResponse, MovieDetails, Credits } from './constants/movies';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_TMDB_API_BASE_URL as string;
-const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY as string;
+const API_BASE_URL = "https://api.themoviedb.org/3";
+const API_KEY = "30ba401e09d0f640d43080caa6fcd2e3";
 
 // Create an Axios instance with default configuration
 const apiClient = axios.create({
@@ -20,7 +20,9 @@ const apiClient = axios.create({
 export const fetchPopularMovies = async (page: number = 1): Promise<MoviesResponse> => {
   const response = await apiClient.get<MoviesResponse>('/movie/popular', {
     params: { page },
+   
   });
+  console.log(response.data);
   return response.data;
 };
 
