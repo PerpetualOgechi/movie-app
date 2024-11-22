@@ -1,13 +1,13 @@
 import { fetchMovieDetails, fetchMovieCredits } from '../../../Api';
 
 interface MovieDetailsPageProps {
-  params: { id: any };
+  params: { id: number };
 }
 
 const MovieDetailsPage = async ({ params }: MovieDetailsPageProps) => {
   const id = params.id;
 
-
+  
 
   // Fetch data
   const movie = await fetchMovieDetails(Number(id));
