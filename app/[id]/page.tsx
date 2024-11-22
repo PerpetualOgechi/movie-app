@@ -1,3 +1,5 @@
+// "use client"
+// import { useParams } from 'next/navigation';
 import { fetchMovieDetails, fetchMovieCredits } from '../../Api';
 
 interface MovieDetailsPageProps {
@@ -5,7 +7,9 @@ interface MovieDetailsPageProps {
 }
 
 const MovieDetailsPage = async ({ params }: MovieDetailsPageProps) => {
+//   const { id } = useParams()
   const id = params.id;
+  console.log(id)
 
   
 
