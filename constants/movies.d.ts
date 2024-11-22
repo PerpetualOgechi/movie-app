@@ -18,7 +18,7 @@ export interface Movie {
   }
 
   export interface MovieDetails {
-    id: number; // Movie ID
+    id: string; // Movie ID
     title: string; // Full movie title
     poster_path: string | null; // Poster path
     overview: string; // Full description
@@ -40,7 +40,7 @@ export interface Movie {
   }
 
   export interface Cast {
-    id: number; // Unique ID for the cast member
+    id: string; // Unique ID for the cast member
     name: string; // Actor's name
     character: string; // Character portrayed
     profile_path: string | null; // Path to actor's profile image
