@@ -1,4 +1,4 @@
-import { fetchMovieDetails, fetchMovieCredits } from '../../../Api';
+import { fetchMovieDetails, fetchMovieCredits } from '../../Api';
 
 interface MovieDetailsPageProps {
   params: { id: string };

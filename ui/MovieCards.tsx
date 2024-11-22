@@ -10,7 +10,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
 
   return (
-    <Link href={`/movies/${movie.id}`} className="bg-white rounded-lg shadow-md overflow-hidden">
+    <Link href={`/${movie.id}`} className="bg-white rounded-lg shadow-md overflow-hidden">
       <img
         src={movie.poster_path ? `${imageBaseUrl}${movie.poster_path}` : '/placeholder.png'}
         alt={movie.title}
