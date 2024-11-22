@@ -1,5 +1,4 @@
 import { fetchMovieDetails, fetchMovieCredits } from '../../../Api';
-import { MovieDetails, Cast } from '../../../constants/movies';
 
 interface MovieDetailsPageProps {
   params: { id: string };

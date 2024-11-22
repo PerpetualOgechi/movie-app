@@ -30,6 +30,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         revalidate: 86400, // Revalidate once a day
       };
     } catch (error) {
+        console.log(error)
       return {
         notFound: true,
       };
