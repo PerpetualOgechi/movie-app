@@ -1,22 +1,19 @@
-// "use client"
-// import { useParams } from 'next/navigation';
 import { fetchMovieDetails, fetchMovieCredits } from '../../Api';
+import { MovieDetails, Cast } from '../../constants/movies';
 
+// Define the props type for the dynamic route
 interface MovieDetailsPageProps {
-  params: { id: string };
+  params: { id: string }; // Ensure params type matches dynamic route
 }
 
 const MovieDetailsPage = async ({ params }: MovieDetailsPageProps) => {
-//   const { id } = useParams()
-  const id = params.id;
-  console.log(id)
+  // Ensure params are used correctly
+  const { id } = params; // Destructure id directly from params
+  console.log('Movie ID:', id);
 
-  
-
-  // Fetch data
-  const movie = await fetchMovieDetails(Number(id));
+  const movie: MovieDetails = await fetchMovieDetails(Number(id));
   const credits = await fetchMovieCredits(Number(id));
-  const cast = credits.cast.slice(0, 10); // Show top 10 cast members
+  const cast: Cast[] = credits.cast.slice(0, 10);
 
   const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
 

@@ -9,8 +9,6 @@ export interface Movie {
   }
 
   export interface MoviesResponse {
-    genres: any;
-    data(data: any): unknown;
     page: number; // Current page
     results: Movie[]; // List of movies
     total_pages: number; // Total number of pages available
@@ -18,7 +16,7 @@ export interface Movie {
   }
 
   export interface MovieDetails {
-    id: string; // Movie ID
+    id: number; // Movie ID
     title: string; // Full movie title
     poster_path: string | null; // Poster path
     overview: string; // Full description
@@ -40,7 +38,7 @@ export interface Movie {
   }
 
   export interface Cast {
-    id: string; // Unique ID for the cast member
+    id: number; // Unique ID for the cast member
     name: string; // Actor's name
     character: string; // Character portrayed
     profile_path: string | null; // Path to actor's profile image
