@@ -3,7 +3,7 @@ import { MovieDetails, Cast } from '../../constants/movies';
 
 // Define the props type for the dynamic route
 interface MovieDetailsPageProps {
-  params: { id: string }; // Ensure params type matches dynamic route
+  params: { id: string, }; // Ensure params type matches dynamic route
 }
 
 const MovieDetailsPage = async ({ params }: MovieDetailsPageProps) => {
