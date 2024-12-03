@@ -1,30 +1,29 @@
-// "use client"
-// import { useParams } from 'next/navigation';
-import { fetchMovieDetails, fetchMovieCredits } from '../../Api';
+
+import { fetchMovieDetails, fetchMovieCredits } from "../../../Api";
 
 interface MovieDetailsPageProps {
   params: { id: string };
 }
 
 const MovieDetailsPage = async ({ params }: MovieDetailsPageProps) => {
-console.log(params)
-  const id = params.id;
-  console.log(id)
+  const id: string = await params.id;
+  // console.log(id)
 
-  
-
-  // Fetch data
   const movie = await fetchMovieDetails(Number(id));
   const credits = await fetchMovieCredits(Number(id));
-  const cast = credits.cast.slice(0, 10); // Show top 10 cast members
+  const cast = credits.cast.slice(0, 10);
 
-  const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
+  const imageBaseUrl = "https://image.tmdb.org/t/p/w500";
 
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex flex-col md:flex-row items-start">
         <img
-          src={movie.poster_path ? `${imageBaseUrl}${movie.poster_path}` : '/placeholder.png'}
+          src={
+            movie.poster_path
+              ? `${imageBaseUrl}${movie.poster_path}`
+              : "/placeholder.png"
+          }
           alt={movie.title}
           className="w-64 h-auto rounded-lg shadow-md"
         />
@@ -32,14 +31,16 @@ console.log(params)
           <h1 className="text-3xl font-bold">{movie.title}</h1>
           <p className="mt-2 text-gray-600">{movie.overview}</p>
           <p className="mt-4">
-            <span className="font-semibold">Release Date:</span> {movie.release_date}
+            <span className="font-semibold">Release Date:</span>{" "}
+            {movie.release_date}
           </p>
           <p className="mt-2">
-            <span className="font-semibold">Rating:</span> {movie.vote_average.toFixed(1)} / 10
+            <span className="font-semibold">Rating:</span>{" "}
+            {movie.vote_average.toFixed(1)} / 10
           </p>
           <p className="mt-2">
-            <span className="font-semibold">Genres:</span>{' '}
-            {movie.genres.map((genre) => genre.name).join(', ')}
+            <span className="font-semibold">Genres:</span>{" "}
+            {movie.genres.map((genre) => genre.name).join(", ")}
           </p>
         </div>
       </div>
@@ -53,7 +54,7 @@ console.log(params)
                   src={
                     actor.profile_path
                       ? `${imageBaseUrl}${actor.profile_path}`
-                      : '/placeholder.png'
+                      : "/placeholder.png"
                   }
                   alt={actor.name}
                   className="w-24 h-24 rounded-full mx-auto"
