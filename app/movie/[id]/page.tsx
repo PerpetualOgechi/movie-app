@@ -5,7 +5,7 @@ interface MovieDetailsPageProps {
 }
 
 const MovieDetailsPage = async ({ params }: MovieDetailsPageProps) => {
-  const id: string = await params.id;
+  const id: string = params.id; // Removed await
 
   const movie = await fetchMovieDetails(Number(id));
   const credits = await fetchMovieCredits(Number(id));
